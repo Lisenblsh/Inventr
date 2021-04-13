@@ -15,7 +15,7 @@
         <Image Name="Table" Margin="34,169,699,212" Source="Pick/fox.jpg"/>
         <Label Content="Стол" Margin="34,238,665,188"/>
         <Image Name="Сupboard" Margin="34,262,699,122" Source="Pick/fox.jpg"/>
-        <Label Content="Шкаф" Margin="34,328,665,98"/>
+        <Label Content="Шкафa" Margin="34,328,665,98"/>
 
         <DataGrid Name="kab3" HorizontalAlignment="Left" Height="309" Margin="468,62,0,0" VerticalAlignment="Top" Width="244">
             <DataGrid.Columns>
