@@ -29,7 +29,6 @@ namespace Inventr
         {
             this.Height = 1;
             this.Width = 1;
-            this.NavigationService.GoBack();
         }
     }
 }
