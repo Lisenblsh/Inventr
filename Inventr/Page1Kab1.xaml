@@ -8,7 +8,31 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Page1Kab1" ShowsNavigationUI="False">
     <Grid Background="White" >
-        <Button Content="Button" HorizontalAlignment="Left" Margin="693,29,0,0" VerticalAlignment="Top" Width="75" Click="GoBack_Click"/>
+        <Button Content="Назад" Margin="708,8,17,0" VerticalAlignment="Top" Click="GoBack_Click"/>
+        <Image Name="Armchair" Margin="45,43,688,340" Source="Pick/fox.jpg"/>
+        <Label Content="Кресло" Margin="45,110,654,316"/>
+        <Image Name="Chair" Margin="244,134,489,247" Source="Pick/fox.jpg"/>
+        <Label Content="Стул" Margin="45,203,654,220"/>
+        <Image Name="Table" Margin="45,228,688,153" Source="Pick/fox.jpg"/>
+        <Label Content="Стол" Margin="45,297,654,129"/>
+        <Image Name="Сupboard" Margin="45,321,688,63" Source="Pick/fox.jpg"/>
+        <Label Content="Шкаф" Margin="45,387,654,39"/>
+        
+        <Image x:Name="SystebBlock" Margin="244,43,489,340" Source="Pick/fox.jpg"/>
+        <Label Content="Системный блок" Margin="244,110,455,316"/>
+        <Image x:Name="Keyboard" Margin="45,134,688,247" Source="Pick/fox.jpg"/>
+        <Label Content="Клавиатура" Margin="244,203,455,220"/>
+        <Image x:Name="Mice" Margin="244,228,489,153" Source="Pick/fox.jpg"/>
+        <Label Content="Мышка" Margin="244,297,455,129"/>
+        <Image x:Name="Monitor" Margin="244,321,489,63" Source="Pick/fox.jpg"/>
+        <Label Content="Монитор" Margin="244,387,455,39"/>
+
+        <DataGrid Name="kab1" HorizontalAlignment="Left" Height="309" Margin="468,62,0,0" VerticalAlignment="Top" Width="244">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{x:Null}" Header="№" Width="1*"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" Header="Инвентарный номер" Width="8*"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Page>
