@@ -25,8 +25,5 @@ namespace Inventr
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<TypeOfFurniture> TypeOfFurnitures { get; set; }
-        public virtual DbSet<Furniture> Furnitures { get; set; }
     }
 }

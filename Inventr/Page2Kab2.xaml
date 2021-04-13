@@ -9,7 +9,7 @@
       Title="Page2Kab2" ShowsNavigationUI="False">
 
     <Grid Background="White" >
-        <Button Content="Назад" Margin="708,8,17,0" VerticalAlignment="Top" Click="GoBack_Click"/>
+        <Button x:Name="bt1" Content="Назад" Margin="708,8,17,0" VerticalAlignment="Top" Click="GoBack_Click"/>
         <Image Name="Armchair" Margin="45,43,688,340" Source="Pick/fox.jpg"/>
         <Label Content="Кресло" Margin="45,110,654,316"/>
         <Image Name="Chair" Margin="45,129,688,252" Source="Pick/fox.jpg"/>
