@@ -9,7 +9,19 @@
       Title="Page3Kab3" ShowsNavigationUI="False">
 
     <Grid Background="White" >
-        <Button Content="Button" HorizontalAlignment="Left" Margin="693,29,0,0" VerticalAlignment="Top" Width="75" Click="GoBack_Click"/>
+        <Button Content="Назад" Margin="708,8,17,0" VerticalAlignment="Top" Click="GoBack_Click"/>
+        <Image Name="Chair" Margin="34,75,699,306" Source="Pick/fox.jpg"/>
+        <Label Content="Стул" Margin="34,144,665,279"/>
+        <Image Name="Table" Margin="34,169,699,212" Source="Pick/fox.jpg"/>
+        <Label Content="Стол" Margin="34,238,665,188"/>
+        <Image Name="Сupboard" Margin="34,262,699,122" Source="Pick/fox.jpg"/>
+        <Label Content="Шкаф" Margin="34,328,665,98"/>
 
+        <DataGrid Name="kab3" HorizontalAlignment="Left" Height="309" Margin="468,62,0,0" VerticalAlignment="Top" Width="244">
+            <DataGrid.Columns>
+                <DataGridCheckBoxColumn Binding="{x:Null}" Header="№" Width="1*"/>
+                <DataGridCheckBoxColumn Binding="{x:Null}" Header="Инвентарный номер" Width="8*"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>
