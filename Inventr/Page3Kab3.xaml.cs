@@ -30,5 +30,10 @@ namespace Inventr
             this.Height = 1;
             this.Width = 1;
         }
+
+        private void Chair_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

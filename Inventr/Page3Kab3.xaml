@@ -10,7 +10,7 @@
 
     <Grid Background="White" >
         <Button Content="Назад" Margin="708,8,17,0" VerticalAlignment="Top" Click="GoBack_Click"/>
-        <Image Name="Chair" Margin="34,75,699,306" Source="Pick/fox.jpg"/>
+        <Image Name="Chair" Margin="34,75,699,306" Source="Pick/fox.jpg" Mouse.MouseDown="Chair_Click"/>
         <Label Content="Стул" Margin="34,144,665,279"/>
         <Image Name="Table" Margin="34,169,699,212" Source="Pick/fox.jpg"/>
         <Label Content="Стол" Margin="34,238,665,188"/>
