@@ -3,17 +3,69 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:dragablz="clr-namespace:Dragablz;assembly=Dragablz"
         xmlns:local="clr-namespace:Inventr"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        Title="MainWindow" Height="450" Width="579" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Button Content="Выход" Margin="708,8,9,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <Button Content="Кабинет 1" HorizontalAlignment="Left" Margin="78,61,0,0" VerticalAlignment="Top" Width="154" Click="Button_Click_1" Height="299"/>
-        <Button Content="Кабинет 2" HorizontalAlignment="Left" Margin="318,61,0,0" VerticalAlignment="Top" Width="154" Click="Button_Click_2" Height="299"/>
-        <Button Content="Кабинет 3" HorizontalAlignment="Left" Margin="564,61,0,0" VerticalAlignment="Top" Width="154" Click="Button_Click_3" Height="299"/>
-        <Frame Name ="Main" Content="Frame" HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="1" NavigationUIVisibility="Hidden"/>
-        <Frame Name ="Page1Kab1" Content="Frame" HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="1" NavigationUIVisibility="Hidden"/>
-        <Frame Name ="Page2Kab2" Content="Frame" HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="1" NavigationUIVisibility="Hidden"/>
-        <Frame Name ="Page3Kab3" Content="Frame" HorizontalAlignment="Left" Height="1" VerticalAlignment="Top" Width="1" NavigationUIVisibility="Hidden"/>
+        <TabControl HorizontalAlignment="Left" Height="421" VerticalAlignment="Top" Width="573" BorderBrush="#FF46DAC6" >
+            
+            <TabItem Header="Кабинет 1">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="dg_cab1" Margin="0,0,242,0" AutoGenerateColumns="False">
+                        <DataGrid.Effect>
+                            <DropShadowEffect Direction="50" ShadowDepth="0" BlurRadius="5" Color="#FF46DAC6"/>
+                        </DataGrid.Effect>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding Num}" Width="3*"/>
+                            <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding InvNum}" Width="8*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Image x:Name="Chair" Margin="353,0,0,286" Source="Pick/Char.png" Mouse.MouseDown="Chair_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_Chair" Content="Стул" Margin="353,112,0,258" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="Table" Margin="392,0,0,286" Mouse.MouseDown="Table_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33" Source="Pick/table.png"/>
+                    <Label x:Name="Quantity_Table" Content="Стол" Margin="392,112,0,258" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="Lock" Margin="431,0,0,286" Source="Pick/lock.png" Mouse.MouseDown="Lock_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_Lock" Content="Шкаф" Margin="431,112,0,258" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="PC" Margin="465,0,0,286" Source="Pick/Comp.png" Mouse.MouseDown="PC_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_PC" Content="PC" Margin="465,112,0,258" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="Monitor" Margin="499,0,0,286" Source="Pick/monitor.png" Mouse.MouseDown="Monitor_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_Monitor" Content="Монитор" Margin="499,112,0,258" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="Keyboard" Margin="353,0,0,215" Source="Pick/Keyboard.png" Mouse.MouseDown="Keyboard_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_Keyboard" Content="Клавиатура" Margin="353,183,0,187" HorizontalAlignment="Left" Width="34"/>
+                    <Image x:Name="Mouse" Margin="392,0,0,215" Source="Pick/mouse.png" Mouse.MouseDown="Mouse_Click" Height="34" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="33"/>
+                    <Label x:Name="Quantity_Mouse" Content="Мышка" Margin="392,183,0,187" HorizontalAlignment="Left" Width="34"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Кабинет 2">
+
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Margin="0,0,242,0">
+                        <DataGrid.Effect>
+                            <DropShadowEffect Direction="50" ShadowDepth="0" BlurRadius="5" Color="#FF46DAC6"/>
+                        </DataGrid.Effect>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding}" Width="3*"/>
+                            <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding}" Width="8*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Кабинет 3">
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid Margin="0,0,242,0">
+                        <DataGrid.Effect>
+                            <DropShadowEffect Direction="50" ShadowDepth="0" BlurRadius="5" Color="#FF46DAC6"/>
+                        </DataGrid.Effect>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="№" Binding="{Binding}" Width="3*"/>
+                            <DataGridTextColumn Header="Инвентарный номер" Binding="{Binding}" Width="8*"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Content="Выход"  Margin="473,0,0,0" VerticalAlignment="Top" Click="Button_Click" HorizontalAlignment="Left" Width="77" Background="#00673AB7" Foreground="#DDFFFFFF" BorderBrush="White"/>
+
     </Grid>
 </Window>

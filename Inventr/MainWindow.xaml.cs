@@ -31,31 +31,51 @@ namespace Inventr
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
             this.Show();
             authorization.Owner = this;
             authorization.ShowDialog();
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Chair_Click(object sender, MouseButtonEventArgs e)
         {
-            Page1Kab1.Height = 418;
-            Page1Kab1.Width = 792;
-            Page1Kab1.Navigate(new Page1Kab1());
+            List<TableDG> table = new List<TableDG> {new TableDG { Num = 1, InvNum = 1235412}};
+            dg_cab1.ItemsSource = table;
         }
 
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void Table_Click(object sender, MouseButtonEventArgs e)
         {
-            Page2Kab2.Height = 418;
-            Page2Kab2.Width = 792;
-            Page2Kab2.Navigate(new Page2Kab2());
+
         }
 
-        private void Button_Click_3(object sender, RoutedEventArgs e)
+        private void Lock_Click(object sender, MouseButtonEventArgs e)
         {
-            Page3Kab3.Height = 418;
-            Page3Kab3.Width = 792;
-            Page3Kab3.Navigate(new Page3Kab3());
+
+        }
+
+        private void PC_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Monitor_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Keyboard_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void Mouse_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        public class TableDG
+        {
+            public int Num { get; set; }
+            public int InvNum { get; set; }
         }
     }
 }
