@@ -20,8 +20,8 @@ namespace Inventr
     /// </summary>
     public partial class Authorization : Window
     {
-        Func func = new Func();
-        public int PRole;
+
+        public static int PRole;
         protected override void OnClosed(EventArgs e) //Функция для завершеия отладки программы
         {
             base.OnClosed(e);
@@ -35,11 +35,22 @@ namespace Inventr
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PRole = func.Authorez(TBox_Login.Text, PBox_Pass.Password);
-            TBox_Login.Clear();
-            PBox_Pass.Clear();
-            if (PRole != 0)
+            if (TBox_Login.Text == "Admin" && PBox_Pass.Password == "123")
+            {
+                PRole = 1;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 this.Hide();
+            }
+            else if (TBox_Login.Text == "User" && PBox_Pass.Password == "qwe")
+            {
+                PRole = 2;
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Hide();
+            }
+            TBox_Login.Clear();
+            PBox_Pass.Clear();          
         }
 
 
@@ -49,23 +60,6 @@ namespace Inventr
             {
                 Button_Click(sender, e);
             }
-        }
-    }
-    public class Func
-    {
-        public int Authorez(string Login, string Pass)
-        {
-            int role = 1;
-
-            //if (Login == "log" && Pass == "pass")
-            //{
-            //    role = 1;
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Неверный логин или пароль");
-            //}
-            return role;
         }
     }
 }

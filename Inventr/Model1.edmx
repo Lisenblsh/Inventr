@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище Database2Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Furniture">
+          <Key>
+            <PropertyRef Name="Id_furniture" />
+          </Key>
+          <Property Name="Id_furniture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number_furniture" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="FK_type_furniture" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Room_furniture">
+          <Key>
+            <PropertyRef Name="Id_room_furniture" />
+          </Key>
+          <Property Name="Id_room_furniture" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number_room" Type="int" Nullable="false" />
+          <Property Name="FK_id_furniture" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Types_furniture">
+          <Key>
+            <PropertyRef Name="Id_type" />
+          </Key>
+          <Property Name="Id_type" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type_name" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Furniture__FK_ty__29572725">
+          <End Role="Types_furniture" Type="Self.Types_furniture" Multiplicity="1" />
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types_furniture">
+              <PropertyRef Name="Id_type" />
+            </Principal>
+            <Dependent Role="Furniture">
+              <PropertyRef Name="FK_type_furniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room_furn__FK_id__35BCFE0A">
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="1" />
+          <End Role="Room_furniture" Type="Self.Room_furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furniture">
+              <PropertyRef Name="Id_furniture" />
+            </Principal>
+            <Dependent Role="Room_furniture">
+              <PropertyRef Name="FK_id_furniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище Database2ModelContainer">
+          <EntitySet Name="Furniture" EntityType="Self.Furniture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Room_furniture" EntityType="Self.Room_furniture" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Types_furniture" EntityType="Self.Types_furniture" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Furniture__FK_ty__29572725" Association="Self.FK__Furniture__FK_ty__29572725">
+            <End Role="Types_furniture" EntitySet="Types_furniture" />
+            <End Role="Furniture" EntitySet="Furniture" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room_furn__FK_id__35BCFE0A" Association="Self.FK__Room_furn__FK_id__35BCFE0A">
+            <End Role="Furniture" EntitySet="Furniture" />
+            <End Role="Room_furniture" EntitySet="Room_furniture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Database2Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Furniture">
+          <Key>
+            <PropertyRef Name="Id_furniture" />
+          </Key>
+          <Property Name="Id_furniture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number_furniture" Type="String" MaxLength="13" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FK_type_furniture" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Types_furniture" Relationship="Self.FK__Furniture__FK_ty__29572725" FromRole="Furniture" ToRole="Types_furniture" />
+          <NavigationProperty Name="Room_furniture" Relationship="Self.FK__Room_furn__FK_id__35BCFE0A" FromRole="Furniture" ToRole="Room_furniture" />
+        </EntityType>
+        <EntityType Name="Room_furniture">
+          <Key>
+            <PropertyRef Name="Id_room_furniture" />
+          </Key>
+          <Property Name="Id_room_furniture" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number_room" Type="Int32" Nullable="false" />
+          <Property Name="FK_id_furniture" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Furniture" Relationship="Self.FK__Room_furn__FK_id__35BCFE0A" FromRole="Room_furniture" ToRole="Furniture" />
+        </EntityType>
+        <EntityType Name="Types_furniture">
+          <Key>
+            <PropertyRef Name="Id_type" />
+          </Key>
+          <Property Name="Id_type" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type_name" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Furnitures" Relationship="Self.FK__Furniture__FK_ty__29572725" FromRole="Types_furniture" ToRole="Furniture" />
+        </EntityType>
+        <Association Name="FK__Furniture__FK_ty__29572725">
+          <End Role="Types_furniture" Type="Self.Types_furniture" Multiplicity="1" />
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Types_furniture">
+              <PropertyRef Name="Id_type" />
+            </Principal>
+            <Dependent Role="Furniture">
+              <PropertyRef Name="FK_type_furniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Room_furn__FK_id__35BCFE0A">
+          <End Role="Furniture" Type="Self.Furniture" Multiplicity="1" />
+          <End Role="Room_furniture" Type="Self.Room_furniture" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Furniture">
+              <PropertyRef Name="Id_furniture" />
+            </Principal>
+            <Dependent Role="Room_furniture">
+              <PropertyRef Name="FK_id_furniture" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Database2Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Furnitures" EntityType="Self.Furniture" />
+          <EntitySet Name="Room_furniture" EntityType="Self.Room_furniture" />
+          <EntitySet Name="Types_furniture" EntityType="Self.Types_furniture" />
+          <AssociationSet Name="FK__Furniture__FK_ty__29572725" Association="Self.FK__Furniture__FK_ty__29572725">
+            <End Role="Types_furniture" EntitySet="Types_furniture" />
+            <End Role="Furniture" EntitySet="Furnitures" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Room_furn__FK_id__35BCFE0A" Association="Self.FK__Room_furn__FK_id__35BCFE0A">
+            <End Role="Furniture" EntitySet="Furnitures" />
+            <End Role="Room_furniture" EntitySet="Room_furniture" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище Database2ModelContainer" CdmEntityContainer="Database2Entities">
+          <EntitySetMapping Name="Furnitures">
+            <EntityTypeMapping TypeName="Database2Model.Furniture">
+              <MappingFragment StoreEntitySet="Furniture">
+                <ScalarProperty Name="Id_furniture" ColumnName="Id_furniture" />
+                <ScalarProperty Name="Number_furniture" ColumnName="Number_furniture" />
+                <ScalarProperty Name="FK_type_furniture" ColumnName="FK_type_furniture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Room_furniture">
+            <EntityTypeMapping TypeName="Database2Model.Room_furniture">
+              <MappingFragment StoreEntitySet="Room_furniture">
+                <ScalarProperty Name="Id_room_furniture" ColumnName="Id_room_furniture" />
+                <ScalarProperty Name="Number_room" ColumnName="Number_room" />
+                <ScalarProperty Name="FK_id_furniture" ColumnName="FK_id_furniture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Types_furniture">
+            <EntityTypeMapping TypeName="Database2Model.Types_furniture">
+              <MappingFragment StoreEntitySet="Types_furniture">
+                <ScalarProperty Name="Id_type" ColumnName="Id_type" />
+                <ScalarProperty Name="Type_name" ColumnName="Type_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -12,20 +12,18 @@ namespace Inventr
     using System;
     using System.Collections.Generic;
     
-    public partial class Furniture
+    public partial class Types_furniture
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Furniture()
+        public Types_furniture()
         {
-            this.Room_furniture = new HashSet<Room_furniture>();
+            this.Furnitures = new HashSet<Furniture>();
         }
     
-        public int Id_furniture { get; set; }
-        public string Number_furniture { get; set; }
-        public int FK_type_furniture { get; set; }
+        public int Id_type { get; set; }
+        public string Type_name { get; set; }
     
-        public virtual Types_furniture Types_furniture { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Room_furniture> Room_furniture { get; set; }
+        public virtual ICollection<Furniture> Furnitures { get; set; }
     }
 }

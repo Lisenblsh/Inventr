@@ -1,0 +1,26 @@
+﻿<Window x:Class="Inventr.Window1"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:Inventr"
+        mc:Ignorable="d"
+        Title="Window1" Height="450" Width="579" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FFE5E5E5">
+        <DataGrid x:Name="dg_cab" Margin="0,0,211,0" AutoGenerateColumns="False">
+            <DataGrid.Effect>
+                <DropShadowEffect Direction="50" ShadowDepth="0" BlurRadius="5" Color="#FF46DAC6"/>
+            </DataGrid.Effect>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="№" Binding="{Binding Furniture.Number_furniture}" Width="150"/>
+                <DataGridTextColumn Header="Тип" Binding="{Binding Furniture.Types_furniture.Type_name}" Width="100"/>
+                <DataGridTextColumn Header="Комната" Binding="{Binding Number_room }" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <ComboBox Name="cb_room_ch" Margin="381,0,34,307" materialDesign:HintAssist.Hint="Выберите комнату..." VerticalAlignment="Bottom" Height="25"/>
+        <TextBox Name="tb_count_f" Margin="381,0,34,272" materialDesign:HintAssist.Hint="Введите количество..." Height="30" VerticalAlignment="Bottom"/>
+        <ComboBox Name="cb_type" Margin="381,0,34,242" materialDesign:HintAssist.Hint="Выберите тип мебели..." VerticalAlignment="Bottom" Height="25" DisplayMemberPath="Type_name"/>
+        <Button x:Name="bt_Add" Margin="381,0,34,205" Content="Добавить" Click="Bt_Add_Click" VerticalAlignment="Bottom"/>
+    </Grid>
+</Window>
